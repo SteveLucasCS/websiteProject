@@ -5,8 +5,9 @@
 :root {
 	--QE-Blue: #042196;
 	--QE-Gold: #D6B302;
-	--light-blue: rgb(10, 44, 141, 0.1);
+	--light-blue: rgb(10, 44, 141, 0.2);
 	--med-blue: rgb(10, 44, 141, 0.3);
+	--light-gold: rgb(176, 146, 0, 0.5);
 }
 
 body {
@@ -101,8 +102,8 @@ h3 {
 button {
 	font-family: "Lato", sans-serif;
 }
-button h2 {
-	font-size: 1.1em;
+button h2, button h4 {
+	font-size: 1em;
 	margin: 0;
 	font-weight: normal;
 	font-family: "Lato", sans-serif;
@@ -132,6 +133,7 @@ article section {
 }
 
 ul li {
+	margin: auto;
 	margin-top: 0;
 	padding-left: 1em;
 }
@@ -169,10 +171,13 @@ table {
 td, th {
 	border-top: none;
 	text-align: center;
+	padding: 0.25em 0;
 }
 td {
 	border-bottom: none;
+	color: #000000;
 }
+
 
 tr:nth-child(even) {
 	background-color: var(--light-blue);
@@ -214,25 +219,45 @@ figcaption h3 {
 	height: auto;
 }
 
-#ann figcaption {
+#ann figcaption{
 	clear:both;
 	display: block;
 	padding-top: 0.5em;
 }
 
-#alice figure figcaption {
-	font-size: 0.8em;
+#ann figcaption h2 {
+	padding: 0;
 }
 
+#alice figure figcaption h2 {
+	padding: 0;
+}
+#coaches-page h2 {
+	font-size: 1em;
+	padding-top: 2em;
+}
+#coaches-page h3 {
+	margin-top: 0.5em;
+	font-size: 0.9em;
+	font-weight: bold;
+}
 #coaches-page .expandable {
 	clear: both;
-	font-size: 0.9em;
-	background-color: var(--light-blue);
 }
 
-#coaches-page button {
+#coaches-page .expand-content {
+	background-color: var(--light-blue);
+	width: 100%;
+}
+
+#coaches-page .expand-content p {
+	padding: 0 2em;
+}
+
+#coaches-page .expandbtn {
 	font-size: 1.2em;
 }
+
 
 footer {
 	margin: 1em auto;
@@ -352,7 +377,7 @@ footer a:hover {
 	height: 235px;
 	max-width: 90%;
 	max-height: 90%;
-	margin: 0 0; /* centers list items on the page */
+	margin: auto; /* centers list items on the page */
 	padding-top: 1em;
 	padding-left: 0;
 
@@ -365,7 +390,7 @@ footer a:hover {
 	-moz-box-sizing: border-box;    /* Firefox, other Gecko */
 	box-sizing: border-box;         /* Opera/IE 8+ */
 	width: 100%;
-	height: 74%;
+	height: 76%;
 	color: rgb(226, 224, 224);
 	padding: 1em 1em;
 	margin: 0;
@@ -415,7 +440,7 @@ form {
 	display: flex;
 	justify-content: center;
 	flex-direction: column;
-	width: 60%;
+	width: 100%;
 	margin: auto;
 
 }
@@ -427,6 +452,7 @@ form input, textarea {
 	padding: 0.2em;
 	margin-top: 0.5em;
 	margin-bottom: 1em;
+	border-color: black;
 }
 
 form p {
@@ -434,6 +460,7 @@ form p {
 	padding: 0;
 }
 
+/* submit button */
 .button {
 	border-style: outset;
 	margin-top: 1em;
@@ -465,20 +492,24 @@ form p {
 
 /* button that expands child content */
 .expandbtn {
-	background-color: var(--light-blue);
-  color: #000000;
-  cursor: pointer;
-  width: 100%;
-  border: none;
-  text-align: left;
-  outline: none;
-  font-size:  1em;
+	background-color: var(--med-blue);
+  	color: #000000;
+  	cursor: pointer;
+  	width: 100%;
+  	border: none;
+  	text-align: left;
+ 	outline: none;
+ 	font-size:  1em;
 	padding: 0.4em;
-  transition: 0.5s;
+  	transition: 0.3s;
 }
 
 .active, .expandbtn:hover {
-  background-color: var(--med-blue);
+  background-color: var(--light-gold);
+}
+
+#individuals-page .active {
+	background-color: var(--light-gold);
 }
 .tablet {display: none;}
 /* WBE certification logo not displayed on mobile */
@@ -494,9 +525,6 @@ form p {
 		width: 80%;
 	}
 
-	#coaches-page {
-		font-size: 1.1em;
-	}
 }
 
 /* Tablet breakpoint */
@@ -557,6 +585,7 @@ form p {
 		width: 100%;
 		margin: auto;
 		margin-bottom: 3em;
+		font-size: 0.8em;
 	}
 
 	#card-panel ul {
@@ -574,7 +603,10 @@ form p {
 	}
 
 	/* card paragraph element hidden until card is hovered */
-	#card-panel p { display: none; }
+	#card-panel p {
+		display: none;
+		height: 77%;
+	}
 
 	#card-panel a:hover p { display: block; 	}
 
@@ -628,6 +660,10 @@ form p {
 	#coaches-page h1 {
 		display: inline-block;
 		float: left;
+	}
+
+	#coaches-page h2 {
+		padding-top: 1em;
 	}
 
 	#ann img {
